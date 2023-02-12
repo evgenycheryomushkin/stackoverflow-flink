@@ -19,12 +19,12 @@ public class TaggedObjectProcessFunction extends KeyedProcessFunction<String, Ta
 
         MapState<String, TaggedObject> state = getRuntimeContext().getMapState(mapStateDescriptor);
         log.warn("process(" + mapStateDescriptor + ")(" + value + "):" + System.currentTimeMillis());
-        if (value.isControl) {
-            for (String key : state.keys()) {
-                out.collect(state.get(key));
-            }
-            return;
-        }
+//        if (value.isControl) {
+//            for (String key : state.keys()) {
+//                out.collect(state.get(key));
+//            }
+//            return;
+//        }
         if (!state.contains(value.getAddress())) {
             state.put(value.getAddress(), value);
         } else {
