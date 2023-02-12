@@ -27,7 +27,7 @@ public class TaggedObjectBroadcastFunction extends KeyedBroadcastProcessFunction
         ctx.applyToKeyedState(valueStateDescriptor, new KeyedStateFunction<String, ValueState<TaggedObject>>() {
             @Override
             public void process(String key, ValueState<TaggedObject> state) throws Exception {
-                // todo
+                out.collect(state.value());
             }
         });
     }
