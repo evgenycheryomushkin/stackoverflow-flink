@@ -10,5 +10,4 @@ import java.util.List;
 public class TaggedObject {
     String address;
     List<String> organizations;
-    boolean isControl = false;
 }
